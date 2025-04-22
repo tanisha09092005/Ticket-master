@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movies - TicketMaster</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h1>TicketMaster</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="movies-container">
+        <h2>Our Movies & Concerts</h2>
+        <div class="movie-item" onclick="showDetails('movie1')">
+            <img src="file:///C:/Users/Admin/Desktop/23510060/images/movie1.jpg" alt="Movie Poster 1">
+            <h3>Harry Potter and the Half Blood Prince</h3>
+        </div>
+        <div class="movie-item" onclick="showDetails('movie2')">
+            <img src="file:///C:/Users/Admin/Desktop/23510060/images/movie2.jpg" alt="Movie Poster 2">
+            <h3>Harry Potter and the Chamber of secrets</h3>
+        </div>
+        <div class="movie-item" onclick="showDetails('concert1')">
+            <img src="file:///C:/Users/Admin/Desktop/23510060/images/Concert Image.jpg" alt="Concert Image">
+            <h3>Harry Styles Concert</h3>
+        </div>
+    </div>
+
+    <section id="ticket-details" class="details-section">
+        <!-- Dynamic details will be injected here -->
+    </section>
+
+    <footer>
+        <p>&copy; 2025 TicketMaster, All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function showDetails(ticket) {
+            let details = {
+                movie1: {
+                    title: 'Harry Potter and The Half Blood Prince',
+                    description: 'Dumbledore and Harry Potter learn more about Voldemorts past and his rise to power. Meanwhile, Harry stumbles upon an old potions textbook belonging to a person calling himself the Half-Blood Prince.',
+                    price: 'Rs. 450',
+                    image: 'file:///C:/Users/Admin/Desktop/23510060/images/movie1.jpg'
+                },
+                movie2: {
+                    title: 'Harry Potter and the Chamber of Secrets',
+                    description: 'A house-elf warns Harry against returning to Hogwarts, but he decides to ignore it. When students and creatures at the school begin to get petrified, Harry finds himself surrounded in mystery.',
+                    price: 'Rs. 400',
+                    image: 'file:///C:/Users/Admin/Desktop/23510060/images/movie2.jpg'
+                },
+                concert1: {
+                    title: 'Harry Styles concert',
+                    description: 'Harry Styles concert',
+                    price: 'Rs.5000',
+                    image: 'file:///C:/Users/Admin/Desktop/23510060/images/Concert Image.jpg'
+                }
+            };
+
+            const ticketDetail = details[ticket];
+
+            document.getElementById('ticket-details').innerHTML = `
+                <div class="ticket-detail">
+                    <img src="${ticketDetail.image}" alt="${ticketDetail.title}">
+                    <h2>${ticketDetail.title}</h2>
+                    <p>${ticketDetail.description}</p>
+                    <p><strong>Price: ${ticketDetail.price}</strong></p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
